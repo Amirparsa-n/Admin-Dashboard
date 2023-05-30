@@ -7,7 +7,8 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import "./App.css";
 
 // Icons
-import {FiSettings} from 'react-icons/fi';
+// import {FiSettings} from 'react-icons/fi';
+import {IoSettingsSharp} from 'react-icons/io5';
 
 // components
 import {Navbar , Footer, ThemeSettings, Sidebar } from './components/export';
@@ -28,21 +29,21 @@ const App = () => {
                 <div className='fixed right-4 bottom-4' style={{zIndex:"1000"}}>
                     <TooltipComponent
                         content="Settings"
-                        position="TopCenter"
+                        position="LeftCenter"
                     >
-                        <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background:'blue', borderRadius:'50%'}}>
-                            <FiSettings />
+                        <button type='button' className='text-3xl settingIcon p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background:'blue', borderRadius:'50%'}}>
+                            <IoSettingsSharp />
                         </button>
                     </TooltipComponent>
                 </div>
 
                 {activeMenu ? (
-                    <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
+                    <div className='w-72 fixed transition-all sidebar dark:bg-secondary-dark-bg bg-white'>
                         <Sidebar />
                     </div>
                     
                 ) : (
-                    <div className='w-0 sidebar dark:bg-secondary-dark-bg bg-white'>
+                    <div className='w-0 sidebar transition-all dark:bg-secondary-dark-bg bg-white'>
                         <Sidebar />
                     </div>
                 )}
@@ -62,7 +63,7 @@ const App = () => {
                     <Routes>
                         {/* Dashboard */}
                         <Route path='/' element={<Ecommerce />} />
-                        <Route path='/commerce' element={<Ecommerce />} />
+                        <Route path='/ecommerce' element={<Ecommerce />} />
 
                         {/* Pages */}
                         <Route path='/orders' element={<Orders />} />
