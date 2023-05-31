@@ -1,7 +1,7 @@
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
 .sidebar {
-  box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
+  box-shadow: rgb(113 122 131 / 15%) 0px 7px 30px 0px;
 }
 .nav-item,
 .navbar {
@@ -61,4 +61,47 @@
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+
+.transitionSidebar {
+  transition: all 0.3s ease;
+}
+
+
+
+.nav-link-notify {
+  position: relative
+}
+
+.nav-link-notify:before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  right: -25px;
+  border-radius: 50%;
+  top: -8px;
+  background-color: #fff;
+  animation: notify-pulse 1s infinite
+}
+
+@-webkit-keyframes notify-pulse {
+  0% {
+      box-shadow: 0 0 0 0 rgba(255,255,255,.7)
+  }
+
+  100% {
+      box-shadow: 0 0 0 10px transparent
+  }
+}
+
+@keyframes notify-pulse {
+  0% {
+      box-shadow: 0 0 0 0 rgba(255,255,255,.7)
+  }
+
+  100% {
+      box-shadow: 0 0 0 10px transparent
+  }
 }
