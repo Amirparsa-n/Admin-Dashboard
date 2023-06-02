@@ -83,6 +83,7 @@
   border-radius: 50%;
   top: -8px;
   background-color: #fff;
+  
   animation: notify-pulse 1s infinite
 }
 
