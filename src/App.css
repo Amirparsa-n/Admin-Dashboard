@@ -106,3 +106,7 @@
       box-shadow: 0 0 0 10px transparent
   }
 }
+
+.e-pager .e-currentitem {
+  background: #4C6EF8 !important;
+}
