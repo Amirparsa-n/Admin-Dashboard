@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 
-import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, Tooltip, DataLabel, LineSeries, DateTime } from '@syncfusion/ej2-react-charts';
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Tooltip, LineSeries, DateTime } from '@syncfusion/ej2-react-charts';
 
 // Data
 import { LinePrimaryXAxis, LinePrimaryYAxis, lineCustomSeries } from '../../data/Data';
