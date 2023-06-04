@@ -12,9 +12,10 @@ module.exports = {
       },
       backgroundColor: {
         'main-bg': '#F5F5F5',
-        // 'main-bg': '#FAFBFB',
-        'main-dark-bg': '#20232A',
+        // 'main-dark-bg': '#20232A',
+        'main-dark-bg': '#1e1e1e',
         'secondary-dark-bg': '#33373E',
+        // 'secondary-dark-bg': '#2d2d30',
         'light-gray': '#F7F7F7',
         'half-transparent': 'rgba(0, 0, 0, 0.5)',
       },
@@ -24,6 +25,7 @@ module.exports = {
         
       width: {
         400: '400px',
+        350: '350px',
         760: '760px',
         780: '780px',
         800: '800px',

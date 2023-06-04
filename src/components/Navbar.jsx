@@ -35,7 +35,7 @@ const NavButton = ({ title, icon, customFunc, dotAnimation }) => (
 
 function Navbar() {
 
-  const {activeMenu, setActiveMenu, screenSize, setScreenSize, setIsClick, isClick, handleClick} = useContext(stateContext);
+  const {activeMenu, setActiveMenu, screenSize, setScreenSize, setIsClick, isClick, handleClick, mainColor} = useContext(stateContext);
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -61,7 +61,7 @@ function Navbar() {
 
 
   return (
-    <div className=' mx-4 rounded-3xl mb-14' style={{backgroundColor:'#4C6EF8'}}>
+    <div className=' mx-4 rounded-3xl mb-14 transition-colors' style={{backgroundColor: mainColor}}>
       <div className='mx-8 h-16 mt-4 flex justify-between items-center sm:p-2 md:mx-6 relative '>
 
         <TooltipComponent content={"Menu"} position='BottomCenter'>

@@ -18,9 +18,9 @@ import { stateContext } from '../contexts/ContextProvide';
 
 const Sidebar = () => {
 
-  const {activeMenu, setActiveMenu, screenSize} = useContext(stateContext);
+  const {activeMenu, setActiveMenu, screenSize, mainColor} = useContext(stateContext);
 
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white  text-md m-2 bg-blue-600';
+  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   const handleCloseSideBar = () => {
@@ -37,11 +37,11 @@ const Sidebar = () => {
         <div className='flex justify-between items-center mt-3'>
           <Link to={'/'} className='flex items-center gap-x-2'>
             <img src={logo} alt="logo" className='w-9'/>
-            <h1 className='text-lg font-bold'>Dashboard</h1>
+            <h1 className='text-lg font-bold dark:text-white transition-colors'>Dashboard</h1>
           </Link>
 
           <TooltipComponent content="Menu" position="BottomCenter">
-            <button type='button' onClick={() => setActiveMenu(prevActiveMenu => !prevActiveMenu)} style={{color: 'blue'}} className='text-xl p-2 rounded-full block hover:bg-light-gray hover:transition-colors transition-colors md:hidden '>
+            <button type='button' onClick={() => setActiveMenu(prevActiveMenu => !prevActiveMenu)} style={{color: mainColor}} className='transition-colors text-xl p-2 rounded-full block hover:bg-light-gray hover:transition-colors transition-colors md:hidden '>
               <BsXCircle/>
             </button>
           </TooltipComponent>
@@ -49,12 +49,12 @@ const Sidebar = () => {
 
         <div className='mt-10'>
           {links.map(item => (
-            <div key={item.title}>
-              <span className='capitalize'>{item.title}</span>
+            <div key={item.title} className='transition-colors'>
+              <span className='capitalize dark:text-gray-400 transition-colors'>{item.title}</span>
 
               {item.links.map(link => (
 
-                <NavLink to={`/${link.name}`} onClick={handleCloseSideBar} style={{}} key={link.name} className={({isActive}) => isActive ? activeLink : normalLink}>
+                <NavLink to={`/${link.name}`} onClick={handleCloseSideBar} style={({isActive}) => isActive ? {'backgroundColor':mainColor} : {}} key={link.name} className={({isActive}) => isActive ? activeLink : normalLink}>
                   <span>{link.icon}</span>
                   <p>{link.name}</p>
                 </NavLink>

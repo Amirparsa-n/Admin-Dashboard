@@ -7,7 +7,7 @@ const Header = ({ category, title }) => {
         {category}
       </p>
 
-      <p className='text-3xl'>
+      <p className='text-3xl dark:text-white transition-colors'>
         {title}
       </p>
     </div>

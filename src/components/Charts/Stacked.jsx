@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, Tooltip, DataLabel, StackingColumnSeries } from '@syncfusion/ej2-react-charts';
 
 // Data
 import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from '../../data/Data';
 
+// Context
+import { stateContext } from '../../contexts/ContextProvide';
+
 function Stacked( {width, height} ) {
 
-    const primaryxAxis = { title: 'Years', interval: 1, valueType: 'Category' };
-    const primaryyAxis = {
-        title: 'Sales in Billions', minimum: 0, maximum: 700, interval: 100,
-        labelFormat: '{value}B'
-    };
+    const {mainMode} = useContext(stateContext)
+
     
     return (
     <ChartComponent 
@@ -20,8 +20,9 @@ function Stacked( {width, height} ) {
       height={height}
       primaryXAxis={stackedPrimaryXAxis} 
       primaryYAxis={stackedPrimaryYAxis} 
-      title='Mobile Game Market by Country'
       tooltip={{enable: true}}
+      background={!mainMode ? "#fff" : "#33373E"}
+      className='transition-colors'      
     >
 
       <Inject services={[StackingColumnSeries, Legend, Tooltip, DataLabel, Category]}/>

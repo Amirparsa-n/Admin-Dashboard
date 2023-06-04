@@ -19,24 +19,25 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, To
 
 // Context
 import { stateContext } from './contexts/ContextProvide';
-
+import { querySelector } from '@syncfusion/ej2/maps';
 
 
 const App = () => {
 
-    const {activeMenu} = useContext(stateContext);
+    const {activeMenu, openSettings, setOpenSettings, mainColor, mainMode} = useContext(stateContext);
+    
 
 
     return (
-        <div>
+        <div className={mainMode ? 'dark' : ''} >
            <BrowserRouter>
-            <div className='flex relative dark:bg-main-dark-bg'>
+            <div className='flex relative dark:bg-main-dark-bg '>
                 <div className='fixed right-4 bottom-4' style={{zIndex:"1000"}}>
                     <TooltipComponent
                         content="Settings"
                         position="LeftCenter"
                     >
-                        <button type='button' className='text-3xl settingIcon p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background:'blue', borderRadius:'50%'}}>
+                        <button onClick={() => setOpenSettings(preventOpenSettings => !preventOpenSettings)} type='button' className='text-3xl settingIcon p-3 hover:drop-shadow-xl hover:bg-light-gray text-white transition-colors' style={{background:`${mainColor}`, borderRadius:'50%'}}>
                             <IoSettingsSharp />
                         </button>
                     </TooltipComponent>
@@ -55,43 +56,47 @@ const App = () => {
 
                 <div className={
                     activeMenu 
-                    ?'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full'
-                    : 'dark:bg-main-dark-bg bg-main-bg min-h-screen w-full'
+                    ?'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full transition-colors'
+                    : 'dark:bg-main-dark-bg bg-main-bg min-h-screen w-full transition-colors'
                 }>
-                    <div className='fixed dark:bg-main-dark-bg bg-main-bg md:static navbar w-full'>
+                    <div className='fixed dark:bg-main-dark-bg bg-main-bg md:static navbar w-full transition-colors'>
                         <Navbar />
                     </div>
                 
-
+                    
                     {/* Router */}
                     <div>
-                        <Routes>
-                            {/* Dashboard */}
-                            <Route path='/' element={<Ecommerce />} />
-                            <Route path='/ecommerce' element={<Ecommerce />} />
+                        {openSettings && <ThemeSettings />}
 
-                            {/* Pages */}
-                            <Route path='/orders' element={<Orders />} />
-                            <Route path='/employees' element={<Employees />} />
-                            <Route path='/customers' element={<Customers />} />
+                        <div onClick={() => setOpenSettings(false)}>
+                            <Routes >
+                                {/* Dashboard */}
+                                <Route path='/' element={<Ecommerce />} />
+                                <Route path='/ecommerce' element={<Ecommerce />} />
 
-                            {/* Apps */}
-                            <Route path='/calendar' element={<Calendar />} />
-                            <Route path='/ToDo' element={<ToDo />} />
-                            <Route path='/editor' element={<Editor />} />
-                            <Route path='/color-picker' element={<ColorPicker />} />
+                                {/* Pages */}
+                                <Route path='/orders' element={<Orders />} />
+                                <Route path='/employees' element={<Employees />} />
+                                <Route path='/customers' element={<Customers />} />
 
-                            {/* Charts */}
-                            <Route path='/line' element={<Line />} />
-                            <Route path='/area' element={<Area />} />
-                            <Route path='/bar' element={<Bar />} />
-                            <Route path='/pie' element={<Pie />} />
-                            <Route path='/financial' element={<Financial />} />
-                            <Route path='/color-mapping' element={<ColorMapping />} />
-                            <Route path='/pyramid' element={<Pyramid />} />
-                            <Route path="/stacked" element={<Stacked />} />
+                                {/* Apps */}
+                                <Route path='/calendar' element={<Calendar />} />
+                                <Route path='/ToDo' element={<ToDo />} />
+                                <Route path='/editor' element={<Editor />} />
+                                <Route path='/color-picker' element={<ColorPicker />} />
 
-                        </Routes>
+                                {/* Charts */}
+                                <Route path='/line' element={<Line />} />
+                                <Route path='/area' element={<Area />} />
+                                <Route path='/bar' element={<Bar />} />
+                                <Route path='/pie' element={<Pie />} />
+                                <Route path='/financial' element={<Financial />} />
+                                <Route path='/color-mapping' element={<ColorMapping />} />
+                                <Route path='/pyramid' element={<Pyramid />} />
+                                <Route path="/stacked" element={<Stacked />} />
+
+                            </Routes>
+                        </div>
                     </div>
                 </div>
                 

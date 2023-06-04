@@ -804,7 +804,7 @@ export const themeColors = [
   },
   {
     name: 'purple-theme',
-    color: '#7352FF',
+    color: '#4C6EF8',
   },
   {
     name: 'red-theme',
