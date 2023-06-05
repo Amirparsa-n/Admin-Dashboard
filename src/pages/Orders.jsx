@@ -17,11 +17,10 @@ const Orders = () => {
       <Header category={"Page"} title={"Orders"} />
 
       <GridComponent
-        id='gridComp'
+        id='OrdersCop'
         dataSource={ordersData}
         allowPaging={true}
         allowSorting={true}
-        
       >
         <ColumnsDirective>
           {ordersGrid.map((item, index) => (

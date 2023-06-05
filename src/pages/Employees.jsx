@@ -13,7 +13,7 @@ import {Header} from '../components/export'
 const Employees = () => {
 
   return (
-    <div className='m-4 mt-36 sm:mt-0 md:mb-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='m-4 mt-36 sm:mt-0 md:mb-10 p-2 md:p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg transition-colors'>
 
       <Header category={"Page"} title={"Employees"} />
 

@@ -24,9 +24,23 @@ import { querySelector } from '@syncfusion/ej2/maps';
 
 const App = () => {
 
-    const {activeMenu, openSettings, setOpenSettings, mainColor, mainMode} = useContext(stateContext);
+    const {activeMenu, openSettings, setOpenSettings, mainColor, mainMode, setMainColor, setMainMode} = useContext(stateContext);
     
+    useEffect(() => {
+        const modeTheme = localStorage.getItem('themeMode');
+        const themeColor= localStorage.getItem('mainColor');
 
+        if (modeTheme && themeColor) {
+            setMainColor(themeColor)
+            if (modeTheme === 'Dark') {
+                setMainMode(true)
+            } else {
+                setMainMode(false)
+            }
+        }
+    }, [])
+    
+    
 
     return (
         <div className={mainMode ? 'dark' : ''} >
