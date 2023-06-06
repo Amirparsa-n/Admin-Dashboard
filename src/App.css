@@ -352,9 +352,6 @@ input:checked + .toggle .star--6 {
   border-radius: 20px 20px 0 0 !important;
 }
 
-.e-control {
-  border-radius: 20px;
-}
 
 .e-richtexteditor.e-rte-tb-expand .e-rte-content, .e-richtexteditor.e-rte-tb-expand .e-source-content {
   border-radius: 0 0 20px 20px;
@@ -362,4 +359,8 @@ input:checked + .toggle .star--6 {
 
 #preview {
   border-radius: 20px;
+}
+
+.navbarItem {
+  right: -40px;
 }
