@@ -18,7 +18,7 @@ const Notification = () => {
   const {mainColor,handleClickFalse } = useContext(stateContext);
 
   return (
-    <div className='nav-item transition-all absolute navbarItem md:right-36 top-12 bg-white dark:bg-[#42464D] p-8 rounded-lg w-80 md:w-9 shadow-2xl'>
+    <div className='nav-item transition-all absolute navbarItem md:right-36 top-12 bg-white dark:bg-[#42464D] p-8 rounded-lg w-80 md:w-96 shadow-2xl'>
       <div>
 
         <div className='flex justify-between items-center'>
