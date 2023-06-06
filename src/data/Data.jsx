@@ -7,8 +7,9 @@ import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
-import { TiTick } from 'react-icons/ti';
+import { RiBankLine } from 'react-icons/ri';
 import { GiLouvrePyramid } from 'react-icons/gi';
+import { HiOutlineReceiptRefund } from 'react-icons/hi';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
@@ -590,7 +591,7 @@ export const earningData = [
     title: 'Customers',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
     boxShadow: '0px 0px 10px 1px #03c9d73f',
   },
   {
@@ -600,7 +601,7 @@ export const earningData = [
     title: 'Products',
     iconColor: '#0255c2',
     iconBg: '#d5e2f7',
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
     boxShadow: '0px 0px 10px 1px #0255c23f',
 
   },
@@ -611,7 +612,7 @@ export const earningData = [
     title: 'Sales',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
     boxShadow: '0px 0px 10px 1px rgba(228, 106, 118, 0.200)',
   },
   {
@@ -621,7 +622,7 @@ export const earningData = [
     title: 'Refunds',
     iconColor: '#5902ab',
     iconBg: '#f0e3fc',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
     boxShadow: '0px 0px 10px 1px #5902ab3f',
 
   },
@@ -635,7 +636,17 @@ export const recentTransactions = [
     desc: 'Money Added',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
+  },
+  {
+    icon: <FiCreditCard />,
+    amount: '+$350',
+    title: 'Credit Card',
+    desc: 'Money reversed',
+    iconColor: '#0255c2',
+    iconBg: '#d5e2f7',
+
+    pcColor: 'text-green-600',
   },
   {
     icon: <BsShield />,
@@ -644,37 +655,27 @@ export const recentTransactions = [
     title: 'Wallet',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
   },
   {
-    icon: <FiCreditCard />,
-    amount: '+$350',
-    title: 'Credit Card',
-    desc: 'Money reversed',
-    iconColor: 'rgb(255, 244, 229)',
-    iconBg: 'rgb(254, 201, 15)',
-
-    pcColor: 'green-600',
-  },
-  {
-    icon: <TiTick />,
+    icon: <RiBankLine />,
     amount: '+$350',
     title: 'Bank Transfer',
     desc: 'Money Added',
 
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
   },
   {
-    icon: <BsCurrencyDollar />,
+    icon: <HiOutlineReceiptRefund />,
     amount: '-$50',
     percentage: '+38%',
     title: 'Refund',
     desc: 'Payment Sent',
-    iconColor: '#03C9D7',
-    iconBg: '#E5FAFB',
-    pcColor: 'red-600',
+    iconColor: '#5902ab',
+    iconBg: '#f0e3fc',
+    pcColor: 'text-red-600',
   },
 ];
 
@@ -685,7 +686,7 @@ export const weeklyStats = [
     title: 'Top Sales',
     desc: 'Johnathan Doe',
     iconBg: '#FB9678',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
   },
   {
     icon: <FiStar />,
@@ -693,7 +694,7 @@ export const weeklyStats = [
     title: 'Best Seller',
     desc: 'MaterialPro Admin',
     iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'red-600',
+    pcColor: 'text-red-600',
   },
   {
     icon: <BsChatLeft />,
@@ -701,7 +702,7 @@ export const weeklyStats = [
     title: 'Most Commented',
     desc: 'Ample Admin',
     iconBg: '#00C292',
-    pcColor: 'green-600',
+    pcColor: 'text-green-600',
   },
 ];
 

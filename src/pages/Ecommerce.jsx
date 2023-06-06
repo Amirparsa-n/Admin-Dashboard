@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 
-import Radium from 'radium';
+
 
 // icons
 import { BsCurrencyDollar } from 'react-icons/bs';
@@ -9,15 +9,20 @@ import Expense from '../assets/image/Expense';
 import Budget from '../assets/image/Budget';
 
 import { Stacked, Pie, Button, SparkLine } from '../components/export';
-import { earningData, SparklineAreaData, ecomPieChartData } from '../data/Data';
-
+import { earningData, SparklineAreaData, ecomPieChartData, recentTransactions, dropdownData } from '../data/Data';
 
 // Context
 import { stateContext } from '../contexts/ContextProvide';
 
+// DropDown component
+import DropDown from '../components/DropDown';
+
+
+
+
 const Ecommerce = () => {
 
-  const {activeMenu, setActiveMenu, screenSize, mainColor} = useContext(stateContext);
+  const {activeMenu, setActiveMenu, screenSize, mainColor, mainMode} = useContext(stateContext);
 
   return (
     <div className='mt-36 sm:mt-0'>
@@ -56,7 +61,7 @@ const Ecommerce = () => {
               </button>
               <div className='flex gap-3'>
                 <span className='font-semibold'>{item.amount}</span>
-                <span className={`text-${item.pcColor}`}>{item.percentage}</span>
+                <span className={item.pcColor}>{item.percentage}</span>
               </div>
               <p className='text-sm text-gray-400 mt-2'>{item.title}</p>
             </div>
@@ -66,15 +71,15 @@ const Ecommerce = () => {
 
       
       <div className='flex flex-wrap justify-center gap-10 '>
-          <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780 transition-colors'>
+          <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780 transition-colors shadow-sm'>
 
             <div className=''>
               <p className='text-xl font-semibold'>Revenue Updates</p>
             </div>
 
             <div className='flex flex-wrap justify-center gap-10 mt-10'>
-
-              <div className=" border-r-1 border-color m-4 pr-10">  
+ 
+              <div className=" border-r-1 border-color m-4 pr-10 dark:border-slate-800">  
                 <div className='flex flex-col gap-y-8'>
                   <div className='flex items-center gap-3 transition-colors'>
                       <Budget color={mainColor}/>
@@ -128,8 +133,103 @@ const Ecommerce = () => {
 
             </div>
           </div>
+
+          <div className='flex flex-col items-center gap-y-4 mt-3 mx-3'>
+            
+            <div style={{backgroundColor: mainColor}} className='rounded-2xl p-4 md:w-400 shadow-sm'>
+              <div className='flex justify-between items-center mt-3'>
+                <p className="font-semibold text-white text-2xl">Earnings</p>
+                <div >
+                  <p className='text-white'>$63,448.78</p>
+                  <p className='text-gray-400'>Monthly revenue</p>
+                </div>
+              </div>
+
+              <div className='mt-8 mb-2 transition-colors w-full flex justify-center'>
+                <SparkLine 
+                  data={SparklineAreaData}
+                  id='column-sparkline'
+                  height="100px"
+                  width="320px"
+                  currentColor={mainColor}
+                  type="Column"
+                  color="rgb(242, 252, 253)"
+                />
+              </div>
+
+            </div>
+
+            <div className='bg-white md:w-400 dark:text-gray-200 dark:bg-secondary-dark-bg m-3 rounded-2xl transition-colors shadow-sm '>
+              <div className='flex justify-evenly items-center p-4 py-7'>
+                <div className=''>
+                  <p className='font-semibold text-2xl'>$43,246</p>
+                  <p className='text-gray-400'>Yearly sales</p>
+                </div>
+
+                <div className=''>
+                  <Pie 
+                    data={ecomPieChartData}
+                    id={"pie-chart-component"}
+                    height={"150px"}
+                    width={"150px"}
+                    legendSettingsVisible={false}
+
+                  />
+                </div>
+
+              </div>
+            </div>
+          </div>
       </div>
 
+      <div className="flex gap-10 m-4 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+
+          <div className='flex justify-between items-center gap-2 md:w-400'>
+            <p className="text-xl font-semibold">Recent Transactions</p>
+            <DropDown currentMode={mainMode} data={dropdownData} id={"time"} />
+          </div>
+
+          <div className='mt-5 pb-5 flex flex-col gap-y-4'>
+            {recentTransactions.map(item => (
+              <div key={item.title} className='flex justify-between items-center'>
+                <div className='flex gap-x-3 items-center'>
+                  <button 
+                  type='button' 
+                  className='text-2xl p-4 rounded-2xl'
+                  style={{color: item.iconColor ,backgroundColor: item.iconBg}}
+                  >
+                    {item.icon}
+                  </button>
+                  
+                  <div>
+                    <p>{item.title}</p>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+
+                <div className={item.pcColor}>
+                  {item.amount}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className='pt-4 flex justify-between items-center border-t-1 dark:border-slate-800'>
+              <Button 
+                bgColor={mainColor}
+                color={"white"}
+                size={"14px"}
+                text={"Add"}
+                borderRadius={"12px"}
+              />
+
+              <p className='text-sm text-gray-400'>36 Recent Transactions</p>
+          </div>
+
+        </div>
+      </div>
+      
 
     </div>
   )

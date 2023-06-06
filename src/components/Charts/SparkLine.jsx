@@ -18,6 +18,7 @@ class SparkLine extends React.PureComponent {
           xName='x' 
           yName='y' 
           dataSource={data}
+          type={type}
 
           tooltipSettings={{
               visible: true,
@@ -29,7 +30,9 @@ class SparkLine extends React.PureComponent {
                 visible: true,
                 color: currentColor,
               }
-          }}>
+          }}
+          
+          >
             <Inject services={[SparklineTooltip]}/>
           </SparklineComponent>);
     }
