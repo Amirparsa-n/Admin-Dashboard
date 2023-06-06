@@ -4,7 +4,6 @@ export const stateContext = createContext();
 
 const initialState = {
     chat: false,
-    cart: false,
     userProfile: false,
     notification: false,
 }
@@ -19,6 +18,7 @@ export const ContextProvider = ({ children }) => {
     const [openSettings, setOpenSettings] = useState(false);
 
     const handleClick = (clicked) => setIsClick({... initialState , [clicked]: true});
+    const handleClickFalse = (clicked) => setIsClick({... initialState , [clicked]: false});
 
     const setMode = (mode) => {
         localStorage.setItem("themeMode", mode.target.value);
@@ -40,7 +40,7 @@ export const ContextProvider = ({ children }) => {
             setActiveMenu,
             isClick,
             setIsClick,
-            handleClick,
+            handleClick,handleClickFalse,
             screenSize,
             setScreenSize,
             mainColor,mainMode,

@@ -88,7 +88,7 @@ function Navbar() {
             </div>
           </TooltipComponent>
 
-          {isClick.cart && <Cart />}
+          {/* {isClick.cart && <Cart />} */}
           {isClick.chat && <Chat />}
           {isClick.userProfile && <UserProfile />}
           {isClick.notification && <Notification />}
