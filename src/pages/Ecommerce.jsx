@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext ,useEffect} from 'react'
 
 
 
@@ -8,7 +8,7 @@ import {RxDotFilled} from 'react-icons/rx';
 import Expense from '../assets/image/Expense';
 import Budget from '../assets/image/Budget';
 
-import { Stacked, Pie, Button, SparkLine } from '../components/export';
+import { Stacked, Pie, Button, SparkLine, Map } from '../components/export';
 import { earningData, SparklineAreaData, ecomPieChartData, recentTransactions, dropdownData } from '../data/Data';
 
 // Context
@@ -183,8 +183,8 @@ const Ecommerce = () => {
       </div>
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
 
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl transition-colors">
           <div className='flex justify-between items-center gap-2 md:w-400'>
             <p className="text-xl font-semibold">Recent Transactions</p>
             <DropDown currentMode={mainMode} data={dropdownData} id={"time"} />
@@ -226,8 +226,18 @@ const Ecommerce = () => {
 
               <p className='text-sm text-gray-400'>36 Recent Transactions</p>
           </div>
-
         </div>
+
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl transition-colors">
+            <div>
+              <p className='text-xl font-semibold'>Buyers and sellers in the world</p>
+              <p className='text-gray-400 text-sm mt-1'>Users from all over the world</p>
+            </div>
+              
+            <Map />
+        </div>
+
+
       </div>
       
 
