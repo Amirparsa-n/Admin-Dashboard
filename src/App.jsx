@@ -80,7 +80,7 @@ const App = () => {
                     ?'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full transition-colors'
                     : 'dark:bg-main-dark-bg bg-main-bg min-h-screen w-full transition-colors'
                 }>
-                    <div className='fixed dark:bg-main-dark-bg bg-main-bg md:static navbar w-full transition-colors'>
+                    <div className='fixed h-0 sm:h-auto dark:bg-main-dark-bg bg-main-bg md:static navbar w-full transition-colors'>
                         <Navbar />
                     </div>
                 

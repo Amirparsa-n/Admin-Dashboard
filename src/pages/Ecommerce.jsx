@@ -52,7 +52,7 @@ const Ecommerce = () => {
           </div>
         </div>
 
-        <div className='flex m-3 flex-wrap justify-center items-center gap-2'>
+        <div className='flex m-3 flex-wrap justify-center items-center  gap-12 sm:gap-2'>
           {earningData.map((item) => (
             <div key={item.title} className='bg-white p-4 dark:text-gray-400 dark:bg-secondary-dark-bg h-44 md:w-56 rounded-2xl pt-6 cursor-pointer transition-colors'>
               <button 
@@ -63,8 +63,8 @@ const Ecommerce = () => {
                 {item.icon}
               </button>
               <div className='flex gap-3'>
-                <span className='font-semibold'>{item.amount}</span>
-                <span className={item.pcColor}>{item.percentage}</span>
+                <span className='font-semibold w-14'>{item.amount}</span>
+                <span className={`${item.pcColor} w-12`}>{item.percentage}</span>
               </div>
               <p className='text-sm text-gray-400 mt-2'>{item.title}</p>
             </div>
@@ -162,7 +162,7 @@ const Ecommerce = () => {
 
             </div>
 
-            <div className='bg-white md:w-400 dark:text-gray-200 dark:bg-secondary-dark-bg m-3 rounded-2xl transition-colors shadow-sm '>
+            <div className='bg-white w-350 md:w-400 dark:text-gray-200 dark:bg-secondary-dark-bg m-3 rounded-2xl transition-colors shadow-sm '>
               <div className='flex justify-evenly items-center p-4 py-7'>
                 <div className=''>
                   <p className='font-semibold text-2xl'>$43,246</p>
