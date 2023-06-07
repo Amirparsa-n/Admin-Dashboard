@@ -117,6 +117,8 @@ const App = () => {
                                 <Route path="/stacked" element={<Stacked />} />
 
                             </Routes>
+
+                            <Footer />
                         </div>
                     </div>
                 </div>
