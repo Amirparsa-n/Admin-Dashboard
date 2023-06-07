@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 import {Link , NavLink} from 'react-router-dom';
 
 // Icons
 import {BsXCircle} from'react-icons/bs';
-import logo from '../assets/image/user-gear.png';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import Logo from '../assets/image/Logo';
 
 // data 
 import { links } from '../data/Data';
@@ -30,14 +30,24 @@ const Sidebar = () => {
   };
   
 
+  const [isHover, setIsHover] = useState(false);
+
+   const handleMouseEnter = () => {
+      setIsHover(true);
+   };
+   const handleMouseLeave = () => {
+      setIsHover(false);
+   };
+
+
   return (
     <div className='h-screen ml-5 md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
       {activeMenu && (
       <>
-        <div className='flex justify-between items-center mt-3'>
+        <div className='flex justify-between items-center mt-6'>
           <Link to={'/'} className='flex items-center gap-x-2'>
-            <img src={logo} alt="logo" className='w-9'/>
-            <h1 className='text-lg font-bold dark:text-white transition-colors'>Dashboard</h1>
+            <Logo color={mainColor}/>
+            <h1 className='text-lg font-bold dark:text-white transition-colors' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{color: isHover ? mainColor : ''}}>Dashboard</h1>
           </Link>
 
           <TooltipComponent content="Menu" position="BottomCenter">
@@ -47,7 +57,7 @@ const Sidebar = () => {
           </TooltipComponent>
         </div>
 
-        <div className='mt-10'>
+        <div className='mt-6'>
           {links.map(item => (
             <div key={item.title} className='transition-colors'>
               <span className='capitalize dark:text-gray-400 transition-colors'>{item.title}</span>
@@ -68,4 +78,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default Sidebar;

@@ -364,3 +364,22 @@ input:checked + .toggle .star--6 {
 .navbarItem {
   right: -40px;
 }
+
+.EarningsBg {
+  top: -22px;
+}
+
+.EarningsText {
+  top: 30px;
+  left: 30px;
+}
+
+.EarningsDollarr {
+  top: 30px;
+  right: 20px;
+}
+
+.EarningsBtn {
+  left: 30px;
+  top: 90px;
+}

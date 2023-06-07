@@ -7,6 +7,7 @@ import { BsCurrencyDollar } from 'react-icons/bs';
 import {RxDotFilled} from 'react-icons/rx';
 import Expense from '../assets/image/Expense';
 import Budget from '../assets/image/Budget';
+import EarningsBg from '../assets/image/EarningsBg';
 
 import { Stacked, Pie, Button, SparkLine, Map } from '../components/export';
 import { earningData, SparklineAreaData, ecomPieChartData, recentTransactions, dropdownData } from '../data/Data';
@@ -28,17 +29,19 @@ const Ecommerce = () => {
     <div className='mt-36 sm:mt-0'>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
 
-        <div style={{backgroundSize:"70%"}}  className='bg-hero-pattern h-44 m-3 p-8 pt-9 lg:w-80 bg-no-repeat bg-right bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl w-full transition-colors'>
-
+        <div style={{backgroundSize:"70%"}}  className='relative h-44 m-3 p-8 pt-9 lg:w-80 bg-no-repeat bg-right bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl w-full transition-colors'>
+          <div className='absolute right-1 w-56 EarningsBg'>
+            <EarningsBg color={mainColor} bgColor={mainMode}/>
+          </div>
           <div className='flex justify-between items-center'>
-            <div>
+            <div className='absolute EarningsText'>
               <p className='font-bold text-gray-400'>Earnings</p>
               <p className='text-xl mt-1'>$63,448.78</p>
             </div>
-            <div className='p-3 rounded-full hover:drop-shadow-xl cursor-pointer transition-colors' style={{backgroundColor:mainColor}}><BsCurrencyDollar className='text-white text-2xl opacity-90 transition-colors'/></div>
+            <div className='absolute EarningsDollarr p-3 rounded-full hover:drop-shadow-xl cursor-pointer transition-colors' style={{backgroundColor:mainColor}}><BsCurrencyDollar className='text-white text-2xl opacity-90 transition-colors'/></div>
           </div>
 
-          <div className='mt-5 transition-colors'>
+          <div className='mt-5 transition-colors absolute EarningsBtn'>
             <Button 
               text={"Download"}
               bgColor={mainColor}
